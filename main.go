@@ -23,6 +23,7 @@ func main() {
 	}()
 
 	http.HandleFunc("/", sayHello)
+	fmt.Println("some log message")
 	fmt.Println("Hello world server listening on 8080...")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
