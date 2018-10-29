@@ -12,14 +12,20 @@ import (
 )
 
 func sayHello(w http.ResponseWriter, r *http.Request) {
-	message := "Hello World v1"
+	message := "Hello 3:34PM"
+	opsProcessed.Inc()
+	w.Write([]byte(message))
+}
+
+func sayGoodbye(w http.ResponseWriter, r *http.Request) {
+	message := "goodbye!"
 	opsProcessed.Inc()
 	w.Write([]byte(message))
 }
 
 var (
 	opsProcessed = promauto.NewCounter(prometheus.CounterOpts{
-		Name: "megan_helloworld_processed_ops_total",
+		Name: "megan_helloworld_processed_ops",
 		Help: "The total number of processed hello calls",
 	})
 )
@@ -37,8 +43,8 @@ func main() {
 
 	http.Handle("/metrics", promhttp.Handler())
 	http.HandleFunc("/", sayHello)
-	fmt.Println("some log message")
-	fmt.Println("Hello world server listening on 8080...")
+	http.HandleFunc("/goodbye ", sayGoodbye)
+	fmt.Println("Server listening on 8080...")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}

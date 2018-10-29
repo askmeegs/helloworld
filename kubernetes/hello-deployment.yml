@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image:  meganokeefe/spinnaker-helloworld
-        imagePullPolicy: IfNotPresent
+        image:  gcr.io/mokeefe-sandbox/github.com/m-okeefe/helloworld
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
