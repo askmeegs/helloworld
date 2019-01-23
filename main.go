@@ -12,7 +12,7 @@ import (
 )
 
 func sayHello(w http.ResponseWriter, r *http.Request) {
-	message := "Hello 3:34PM"
+	message := "Hello World v1"
 	opsProcessed.Inc()
 	w.Write([]byte(message))
 }

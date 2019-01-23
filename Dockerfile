@@ -3,12 +3,12 @@
 FROM golang
 
 # Copy the local package files to the container's workspace.
-ADD . $GOPATH/src/github.com/mokeefe/helloworld
+ADD . $GOPATH/src/github.com/m-okeefe/helloworld
 
 # Build the outyet command inside the container.
 # (You may fetch or manage dependencies here,
 # either manually or with a tool like "godep".)
-RUN go install github.com/mokeefe/helloworld
+RUN go install github.com/m-okeefe/helloworld
 
 # Run the outyet command by default when the container starts.
 ENTRYPOINT /go/bin/helloworld

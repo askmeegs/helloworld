@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image:  gcr.io/mokeefe-sandbox/github.com/m-okeefe/helloworld
+        image:  gcr.io/megangcp/helloworld
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
